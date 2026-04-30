@@ -1,14 +1,15 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import CraftingCalculator from '@/components/CraftingCalculator'
-import TradingCalculator from '@/components/TradingCalculator'
-import GearScoreCalculator from '@/components/GearScoreCalculator'
+import { useState } from "react";
+import CraftingCalculator from "@/components/CraftingCalculator";
+import TradingCalculator from "@/components/TradingCalculator";
+import GearScoreCalculator from "@/components/GearScoreCalculator";
 
-type CalculatorType = 'crafting' | 'trading' | 'gearscore'
+type CalculatorType = "crafting" | "trading" | "gearscore";
 
 export default function Home() {
-  const [activeCalculator, setActiveCalculator] = useState<CalculatorType>('crafting')
+  const [activeCalculator, setActiveCalculator] =
+    useState<CalculatorType>("crafting");
 
   return (
     <main className="min-h-screen p-4 md:p-8">
@@ -27,31 +28,31 @@ export default function Home() {
         <nav className="mb-8">
           <div className="flex flex-wrap gap-2 justify-center">
             <button
-              onClick={() => setActiveCalculator('crafting')}
+              onClick={() => setActiveCalculator("crafting")}
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-                activeCalculator === 'crafting'
-                  ? 'bg-nw-accent text-nw-primary'
-                  : 'bg-nw-secondary text-nw-text hover:bg-nw-secondary/80'
+                activeCalculator === "crafting"
+                  ? "bg-nw-accent text-nw-primary"
+                  : "bg-nw-secondary text-nw-text hover:bg-nw-secondary/80"
               }`}
             >
               Crafting Calculator
             </button>
             <button
-              onClick={() => setActiveCalculator('trading')}
+              onClick={() => setActiveCalculator("trading")}
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-                activeCalculator === 'trading'
-                  ? 'bg-nw-accent text-nw-primary'
-                  : 'bg-nw-secondary text-nw-text hover:bg-nw-secondary/80'
+                activeCalculator === "trading"
+                  ? "bg-nw-accent text-nw-primary"
+                  : "bg-nw-secondary text-nw-text hover:bg-nw-secondary/80"
               }`}
             >
               Trading Calculator
             </button>
             <button
-              onClick={() => setActiveCalculator('gearscore')}
+              onClick={() => setActiveCalculator("gearscore")}
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-                activeCalculator === 'gearscore'
-                  ? 'bg-nw-accent text-nw-primary'
-                  : 'bg-nw-secondary text-nw-text hover:bg-nw-secondary/80'
+                activeCalculator === "gearscore"
+                  ? "bg-nw-accent text-nw-primary"
+                  : "bg-nw-secondary text-nw-text hover:bg-nw-secondary/80"
               }`}
             >
               Gear Score Calculator
@@ -61,16 +62,49 @@ export default function Home() {
 
         {/* Calculator Content */}
         <div className="bg-nw-secondary rounded-xl p-6 shadow-2xl">
-          {activeCalculator === 'crafting' && <CraftingCalculator />}
-          {activeCalculator === 'trading' && <TradingCalculator />}
-          {activeCalculator === 'gearscore' && <GearScoreCalculator />}
+          {activeCalculator === "crafting" && <CraftingCalculator />}
+          {activeCalculator === "trading" && <TradingCalculator />}
+          {activeCalculator === "gearscore" && <GearScoreCalculator />}
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-nw-text/60 text-sm">
-          <p>Made for New World players • Not affiliated with Amazon Games</p>
+        <footer className="mt-12 text-center text-nw-text/60">
+          <div className="mb-4">
+            <nav className="flex flex-wrap justify-center gap-4 text-sm">
+              <a
+                href="/about"
+                className="hover:text-nw-accent transition-colors"
+              >
+                About
+              </a>
+              <span className="text-nw-text/40">•</span>
+              <a
+                href="/privacy"
+                className="hover:text-nw-accent transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-nw-text/40">•</span>
+              <a
+                href="/contact"
+                className="hover:text-nw-accent transition-colors"
+              >
+                Contact
+              </a>
+              <span className="text-nw-text/40">•</span>
+              <a
+                href="/disclaimer"
+                className="hover:text-nw-accent transition-colors"
+              >
+                Disclaimer
+              </a>
+            </nav>
+          </div>
+          <p className="text-sm">
+            Made for New World players • Not affiliated with Amazon Games
+          </p>
         </footer>
       </div>
     </main>
-  )
+  );
 }
